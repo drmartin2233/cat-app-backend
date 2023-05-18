@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
+const cors = require('cors');
 
 const catRoutes  = require('./routes/cats');
 
@@ -13,6 +14,7 @@ require('./config/database');
 
 //Middleware
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 // ROUTERS
 app.use('/cats', catRoutes);
